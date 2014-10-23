@@ -17,12 +17,10 @@
 	<name>SCIFIO Projects</name>
 	<url>http://scif.io/</url>
 	<inceptionYear>2011</inceptionYear>
-
 	<organization>
 		<name>SCIFIO</name>
 		<url>http://scif.io/</url>
 	</organization>
-
 	<licenses>
 		<license>
 			<name>Simplified BSD License</name>
@@ -75,7 +73,6 @@
 		<tag>HEAD</tag>
 		<url>http://github.com/scifio/pom-scifio</url>
 	</scm>
-
 	<ciManagement>
 		<system>Jenkins</system>
 		<url>http://jenkins.imagej.net/view/SCIFIO/</url>
@@ -234,5 +231,4 @@ Wisconsin-Madison</organizationName>
 			</pluginRepositories>
 		</profile>
 	</profiles>
-
 </project>
