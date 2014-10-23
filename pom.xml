@@ -11,7 +11,7 @@
 
 	<groupId>io.scif</groupId>
 	<artifactId>pom-scifio</artifactId>
-	<version>1.6-SNAPSHOT</version>
+	<version>2.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>SCIFIO Projects</name>
@@ -67,6 +67,10 @@
 		</mailingList>
 	</mailingLists>
 
+	<modules>
+		<module>bom</module>
+	</modules>
+
 	<scm>
 		<connection>scm:git:git://github.com/scifio/pom-scifio</connection>
 		<developerConnection>scm:git:git@github.com:scifio/pom-scifio</developerConnection>
@@ -79,101 +83,43 @@
 	</ciManagement>
 
 	<properties>
-		<!-- If two artifacts on the classpath use two different versions of the
-		     same dependency, behavior is inconsistent at best, and often broken.
-		     The following properties facilitate consistency of dependency
-		     versions between various projects in the SCIFIO software stack.
+		<!-- SCIFIO Bill of Materials - https://github.com/scifio/pom-scifio -->
+		<bom-scifio.version>2.0-SNAPSHOT</bom-scifio.version>
 
-		     When possible, we advise declaring your SCIFIO dependencies without a
-		     <version> since the versions of core SCIFIO components are managed in
-		     this POM's <dependencyManagement> section.
+		<!-- ImageJ Bill of Materials - https://github.com/imagej/pom-imagej -->
+		<bom-imagej.version>3.0</bom-imagej.version>
 
-		     If you need to override the version of a particular component, then
-		     simply override that component's version property in your POM's
-		     <properties> section. dependencies rather than hardcoding them. -->
-
-		<!-- SCIFIO - https://github.com/scifio -->
-
-		<!-- SCIFIO - https://github.com/scifio/scifio -->
-		<scifio.version>0.16.5</scifio.version>
-
-		<!-- SCIFIO-BF-compat - https://github.com/scifio/scifio-bf-compat -->
-		<scifio-bf-compat.version>1.8.4</scifio-bf-compat.version>
-
-		<!-- SCIFIO Command Line Tools - https://github.com/scifio/scifio-cli -->
-		<scifio-cli.version>0.1.0</scifio-cli.version>
-
-		<!-- SCIFIO JAI Image I/O - https://github.com/scifio/scifio-jai-imageio -->
-		<scifio-jai-imageio.version>1.1.0</scifio-jai-imageio.version>
-
-		<!-- SCIFIO-LifeSci - https://github.com/scifio/scifio-lifesci -->
-		<scifio-lifesci.version>0.5.2</scifio-lifesci.version>
-
-		<!-- SCIFIO-OME-XML - https://github.com/scifio/scifio-ome-xml -->
-		<scifio-ome-xml.version>0.9.3</scifio-ome-xml.version>
-
-		<!-- SCIFIO-OMERO - https://github.com/scifio/scifio-omero -->
-		<scifio-omero.version>0.5.1</scifio-omero.version>
+		<!-- ImgLib2 Bill of Materials - https://github.com/imglib2/pom-imglib2 -->
+		<bom-imglib2.version>4.0</bom-imglib2.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- ImgLib2 dependencies - https://github.com/scifio/pom-imglib2 -->
+			<!-- SCIFIO Bill of Materials - https://github.com/scifio/pom-scifio -->
 			<dependency>
-				<groupId>net.imglib2</groupId>
-				<artifactId>pom-imglib2</artifactId>
-				<version>3.2</version>
+				<groupId>io.scif</groupId>
+				<artifactId>bom-scifio</artifactId>
+				<version>${bom-scifio.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 
-			<!-- SCIFIO - https://github.com/scifio/scifio -->
+			<!-- ImageJ Bill of Materials - https://github.com/imagej/pom-imagej -->
 			<dependency>
-				<groupId>io.scif</groupId>
-				<artifactId>scifio</artifactId>
-				<version>${scifio.version}</version>
+				<groupId>net.imagej</groupId>
+				<artifactId>bom-imagej</artifactId>
+				<version>${bom-imagej.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 
-			<!-- SCIFIO-BF-compat - https://github.com/scifio/scifio-bf-compat -->
+			<!-- ImgLib2 Bill of Materials - https://github.com/imglib/pom-imglib2 -->
 			<dependency>
-				<groupId>io.scif</groupId>
-				<artifactId>scifio-bf-compat</artifactId>
-				<version>${scifio-bf-compat.version}</version>
-			</dependency>
-
-			<!-- SCIFIO Command Line Tools - https://github.com/scifio/scifio-cli -->
-			<dependency>
-				<groupId>io.scif</groupId>
-				<artifactId>scifio-cli</artifactId>
-				<version>${scifio-cli.version}</version>
-			</dependency>
-
-			<!-- SCIFIO JAI Image I/O - https://github.com/scifio/scifio-jai-imageio -->
-			<dependency>
-				<groupId>io.scif</groupId>
-				<artifactId>scifio-jai-imageio</artifactId>
-				<version>${scifio-jai-imageio.version}</version>
-			</dependency>
-
-			<!-- SCIFIO-LifeSci - https://github.com/scifio/scifio-lifesci -->
-			<dependency>
-				<groupId>io.scif</groupId>
-				<artifactId>scifio-lifesci</artifactId>
-				<version>${scifio-lifesci.version}</version>
-			</dependency>
-
-			<!-- SCIFIO-OME-XML - https://github.com/scifio/scifio-ome-xml -->
-			<dependency>
-				<groupId>io.scif</groupId>
-				<artifactId>scifio-ome-xml</artifactId>
-				<version>${scifio-ome-xml.version}</version>
-			</dependency>
-
-			<!-- SCIFIO-OMERO - https://github.com/scifio/scifio-omero -->
-			<dependency>
-				<groupId>io.scif</groupId>
-				<artifactId>scifio-omero</artifactId>
-				<version>${scifio-omero.version}</version>
+				<groupId>net.imglib2</groupId>
+				<artifactId>bom-imglib2</artifactId>
+				<version>${bom-imglib2.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -194,8 +140,8 @@ Wisconsin-Madison</organizationName>
 	</build>
 
 	<profiles>
-		<!-- This developer profile makes it easy to pin to SNAPSHOT versions.
-		     Add an empty dev.scifio file in your ~/.scijava directory, and
+		<!-- This developer profile enables pinning to scifio SNAPSHOT versions.
+		     Add an empty dev.scifio file in your ~/.scijava directory, and scifio
 		     dependencies will automatically update! You may also need to refresh
 		     your IDE; e.g., in Eclipse: right click, Maven > Update Project... -->
 		<profile>
@@ -213,6 +159,90 @@ Wisconsin-Madison</organizationName>
 				<scifio-lifesci.version>LATEST</scifio-lifesci.version>
 				<scifio-ome-xml.version>LATEST</scifio-ome-xml.version>
 				<scifio-omero.version>LATEST</scifio-omero.version>
+			</properties>
+			<repositories>
+				<repository>
+					<id>imagej.public</id>
+					<url>http://maven.imagej.net/content/groups/public</url>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>imagej.public</id>
+					<url>http://maven.imagej.net/content/groups/public</url>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+
+		<!-- This developer profile enables pinning to imagej SNAPSHOT versions.
+		     Add an empty dev.imagej file in your ~/.scijava directory, and imagej
+		     dependencies will automatically update! You may also need to refresh
+		     your IDE; e.g., in Eclipse: right click, Maven > Update Project... -->
+		<profile>
+			<id>dev.imagej</id>
+			<activation>
+				<file>
+					<exists>${user.home}/.scijava/dev.imagej</exists>
+				</file>
+			</activation>
+			<properties>
+				<imagej.version>LATEST</imagej.version>
+				<ij1-patcher.version>LATEST</ij1-patcher.version>
+				<imagej-common.version>LATEST</imagej-common.version>
+				<imagej-launcher.version>LATEST</imagej-launcher.version>
+				<imagej-legacy.version>LATEST</imagej-legacy.version>
+				<imagej-omero.version>LATEST</imagej-omero.version>
+				<imagej-ops.version>LATEST</imagej-ops.version>
+				<imagej-plugins-commands.version>LATEST</imagej-plugins-commands.version>
+				<imagej-plugins-tools.version>LATEST</imagej-plugins-tools.version>
+				<imagej-plugins-uploader-ssh.version>LATEST</imagej-plugins-uploader-ssh.version>
+				<imagej-plugins-uploader-webdav.version>LATEST</imagej-plugins-uploader-webdav.version>
+				<imagej-ui-awt.version>LATEST</imagej-ui-awt.version>
+				<imagej-ui-swing.version>LATEST</imagej-ui-swing.version>
+				<imagej-updater.version>LATEST</imagej-updater.version>
+				<imagej-usage.version>LATEST</imagej-usage.version>
+			</properties>
+			<repositories>
+				<repository>
+					<id>imagej.public</id>
+					<url>http://maven.imagej.net/content/groups/public</url>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>imagej.public</id>
+					<url>http://maven.imagej.net/content/groups/public</url>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+
+		<!-- This developer profile enables pinning to imglib2 SNAPSHOT versions.
+		     Add an empty dev.imglib2 file in your ~/.scijava directory, and imglib2
+		     dependencies will automatically update! You may also need to refresh
+		     your IDE; e.g., in Eclipse: right click, Maven > Update Project... -->
+		<profile>
+			<id>dev.imglib2</id>
+			<activation>
+				<file>
+					<exists>${user.home}/.scijava/dev.imglib2</exists>
+				</file>
+			</activation>
+			<properties>
+				<imglib2.version>LATEST</imglib2.version>
+				<imglib2-algorithm.version>LATEST</imglib2-algorithm.version>
+				<imglib2-algorithm-fft.version>LATEST</imglib2-algorithm-fft.version>
+				<imglib2-algorithm-gpl.version>LATEST</imglib2-algorithm-gpl.version>
+				<imglib2-ij.version>LATEST</imglib2-ij.version>
+				<imglib2-realtransform.version>LATEST</imglib2-realtransform.version>
+				<imglib2-roi.version>LATEST</imglib2-roi.version>
+				<imglib2-script.version>LATEST</imglib2-script.version>
+				<imglib2-ui.version>LATEST</imglib2-ui.version>
 			</properties>
 			<repositories>
 				<repository>
