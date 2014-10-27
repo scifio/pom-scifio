@@ -11,7 +11,7 @@
 
 	<groupId>io.scif</groupId>
 	<artifactId>pom-scifio</artifactId>
-	<version>2.3-SNAPSHOT</version>
+	<version>2.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>SCIFIO Projects</name>
@@ -84,7 +84,7 @@
 
 	<properties>
 		<!-- SCIFIO Bill of Materials - https://github.com/scifio/pom-scifio -->
-		<bom-scifio.version>2.3-SNAPSHOT</bom-scifio.version>
+		<bom-scifio.version>2.4-SNAPSHOT</bom-scifio.version>
 
 		<!-- ImageJ Bill of Materials - https://github.com/imagej/pom-imagej -->
 		<bom-imagej.version>3.1</bom-imagej.version>

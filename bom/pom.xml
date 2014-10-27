@@ -11,7 +11,7 @@
 
 	<groupId>io.scif</groupId>
 	<artifactId>bom-scifio</artifactId>
-	<version>2.3-SNAPSHOT</version>
+	<version>2.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>SCIFIO Bill of Materials</name>
