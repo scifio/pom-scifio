@@ -11,7 +11,7 @@
 
 	<groupId>io.scif</groupId>
 	<artifactId>pom-scifio</artifactId>
-	<version>5.1-SNAPSHOT</version>
+	<version>5.1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>SCIFIO Projects</name>
