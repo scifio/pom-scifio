@@ -5,13 +5,13 @@
 	<parent>
 		<groupId>net.imagej</groupId>
 		<artifactId>pom-imagej</artifactId>
-		<version>11.2.0</version>
+		<version>14.0.0</version>
 		<relativePath />
 	</parent>
 
 	<groupId>io.scif</groupId>
 	<artifactId>pom-scifio</artifactId>
-	<version>9.0.1-SNAPSHOT</version>
+	<version>10.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>SCIFIO Projects</name>
