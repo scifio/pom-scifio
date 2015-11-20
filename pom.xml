@@ -68,16 +68,6 @@
 		</contributor>
 	</contributors>
 
-	<mailingLists>
-		<mailingList>
-			<name>SCIFIO</name>
-			<subscribe>http://scif.io/mailman/listinfo/scifio</subscribe>
-			<unsubscribe>http://scif.io/mailman/listinfo/scifio</unsubscribe>
-			<post>scifio@scif.io</post>
-			<archive>http://scif.io/pipermail/scifio/</archive>
-		</mailingList>
-	</mailingLists>
-
 	<scm>
 		<connection>scm:git:git://github.com/scifio/pom-scifio</connection>
 		<developerConnection>scm:git:git@github.com:scifio/pom-scifio</developerConnection>
