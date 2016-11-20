@@ -3,18 +3,19 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>net.imagej</groupId>
-		<artifactId>pom-imagej</artifactId>
-		<version>16.0.0</version>
+		<groupId>org.scijava</groupId>
+		<artifactId>pom-scijava</artifactId>
+		<version>12.0.0</version>
 		<relativePath />
 	</parent>
 
 	<groupId>io.scif</groupId>
 	<artifactId>pom-scifio</artifactId>
-	<version>12.0.1-SNAPSHOT</version>
+	<version>13.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>SCIFIO Projects</name>
+	<description>Obsolete parent POM. Extend scijava:pom-scijava instead!</description>
 	<url>http://scif.io/</url>
 	<inceptionYear>2011</inceptionYear>
 	<organization>
@@ -30,10 +31,6 @@
 			<roles>
 				<role>founder</role>
 				<role>lead</role>
-				<role>developer</role>
-				<role>debugger</role>
-				<role>reviewer</role>
-				<role>support</role>
 				<role>maintainer</role>
 			</roles>
 		</developer>
@@ -58,6 +55,10 @@
 		<tag>HEAD</tag>
 		<url>http://github.com/scifio/pom-scifio</url>
 	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/scifio/pom-scifio/issues</url>
+	</issueManagement>
 	<ciManagement>
 		<system>Jenkins</system>
 		<url>http://jenkins.imagej.net/job/pom-scifio/</url>
@@ -66,13 +67,19 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>license-maven-plugin</artifactId>
+				<artifactId>maven-enforcer-plugin</artifactId>
 				<configuration>
-					<licenseName>bsd_2</licenseName>
-					<projectName>SCIFIO library for reading and converting scientific file formats.</projectName>
-					<organizationName>Board of Regents of the University of
-Wisconsin-Madison</organizationName>
+					<rules combine.self="override">
+						<requireProperty>
+							<property>project.artifactId</property>
+							<regex>pom-scifio</regex>
+							<regexMessage>~
++-----------------------------------------------------------------------+
+| The pom-scifio parent is obsolete. Please extend pom-scijava instead! |
++-----------------------------------------------------------------------+
+~</regexMessage>
+						</requireProperty>
+					</rules>
 				</configuration>
 			</plugin>
 		</plugins>
